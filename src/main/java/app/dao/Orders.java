@@ -1,4 +1,4 @@
-package app.model;
+package app.dao;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,17 +13,15 @@ public class Orders {
     private String book;
     private Date fromDate;
     private Date toDate;
-    private Boolean isOriginal;
-    private Boolean isActive;
+    private Boolean status;
 
-    public Orders(Long id, String user, String book, Date fromDate, Date toDate, Boolean isOriginal, Boolean isActive) {
+    public Orders(Long id, String user, String book, Date fromDate, Date toDate) {
         this.id = id;
         this.user = user;
         this.book = book;
         this.fromDate = fromDate;
         this.toDate = toDate;
-        this.isOriginal = isOriginal;
-        this.isActive = isActive;
+
     }
 
     public Orders() {
@@ -69,22 +67,6 @@ public class Orders {
         this.toDate = toDate;
     }
 
-    public Boolean getOriginal() {
-        return isOriginal;
-    }
-
-    public void setOriginal(Boolean original) {
-        isOriginal = original;
-    }
-
-    public Boolean getActive() {
-        return isActive;
-    }
-
-    public void setActive(Boolean active) {
-        isActive = active;
-    }
-
     @Override
     public String toString() {
         return "Orders{" +
@@ -93,8 +75,6 @@ public class Orders {
                 ", book=" + book +
                 ", fromDate=" + fromDate +
                 ", toDate=" + toDate +
-                ", isOriginal=" + isOriginal +
-                ", isActive=" + isActive +
                 '}';
     }
 }

@@ -1,4 +1,4 @@
-package app.model;
+package app.dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,11 +18,12 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String titleName;
-    private String mainAuthor;
+    private String title;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "mainAuthor_id", referencedColumnName = "id")
+    private Author mainAuthor;
     private String coAuthor;
-    private Integer originalsAmount;
     private Integer copiesAmount;
-    private Boolean isAvailable;
+
 }
 

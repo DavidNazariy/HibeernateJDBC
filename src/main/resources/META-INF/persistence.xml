@@ -6,10 +6,10 @@
              version="2.1">
     <persistence-unit name="entityManager1" transaction-type="RESOURCE_LOCAL">
         <description>My Persistence Unit</description>
-        <class>app.model.User</class>
-        <class>app.model.Author</class>
-        <class>app.model.Book</class>
-        <class>app.model.Orders</class>
+        <class>app.dao.User</class>
+        <class>app.dao.Author</class>
+        <class>app.dao.Book</class>
+        <class>app.dao.Orders</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>

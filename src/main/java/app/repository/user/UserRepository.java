@@ -1,6 +1,6 @@
-package app.service.user;
+package app.repository.user;
 
-import app.model.User;
+import app.dao.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,6 +12,10 @@ public interface UserRepository {
     List<User> findAll();
 
     List findWithName(String name);
+
+    List findByEmail(String email);
+
+    List getStatisticAboutUser(String name);
 
     User findWithId(Long id);
 

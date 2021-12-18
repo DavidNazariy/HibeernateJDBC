@@ -1,7 +1,9 @@
-package app.service.user;
+package app.repository.user.impl;
 
-import app.model.User;
+import app.dao.User;
+import app.repository.user.UserRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -12,6 +14,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
+@Slf4j
 @Service
 @AllArgsConstructor
 public class UserRepositoryImpl implements UserRepository {
@@ -19,9 +22,13 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void saveUser(User user) {
-        entityManager.getTransaction().begin();
-        entityManager.persist(user);
-        entityManager.getTransaction().commit();
+        if (findByEmail(user.getEmail()).size() == 0) {
+            entityManager.getTransaction().begin();
+            entityManager.persist(user);
+            entityManager.getTransaction().commit();
+            log.info("Saved user:", user);
+        } else
+            log.info("User already exist:", user);
     }
 
     @Override
@@ -35,11 +42,22 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     public List findWithName(String name) {
-        return entityManager.createQuery(
-                        "SELECT c FROM User c WHERE c.firstName LIKE :first_name")
-                .setParameter("first_name", name)
-                .setMaxResults(10)
+        return entityManager.createNativeQuery(" SELECT * FROM USER WHERE lastName = ?1", User.class)
+                .setParameter(1, name)
                 .getResultList();
+    }
+
+    @Override
+    public List findByEmail(String email) {
+        return entityManager.createNativeQuery(" SELECT * FROM USER WHERE email = ?1", User.class)
+                .setParameter(1, email)
+                .getResultList();
+
+    }
+
+    @Override
+    public List getStatisticAboutUser(String name) {
+    return null;
     }
 
     public User findWithId(Long id) {

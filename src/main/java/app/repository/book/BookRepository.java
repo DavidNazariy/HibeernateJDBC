@@ -1,6 +1,6 @@
-package app.service.book;
+package app.repository.book;
 
-import app.model.Book;
+import app.dao.Book;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,11 +12,10 @@ public interface BookRepository {
 
     List<Book> findAll();
 
-    List findWithName(String name);
+    List findByTitle(String title);
 
-    Book findWithId(Long id);
+    List getInfoByAuthor(String name);
 
-    Book findWithIdCustomFields(Long id);
 
 
 }
