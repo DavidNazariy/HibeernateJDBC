@@ -4,6 +4,8 @@ import app.dao.Author;
 import app.dto.BookDto;
 import app.dto.OrdersDto;
 import app.dto.UserDto;
+import app.repository.book.BookRepository;
+import app.repository.user.UserRepository;
 import app.service.book.BookService;
 import app.service.orders.OrdersService;
 import app.service.user.UserService;
@@ -20,6 +22,8 @@ import java.time.format.DateTimeFormatter;
 public class Init {
 
     private final BookService bookService;
+    private final BookRepository bookRepository;
+    private final UserRepository userRepository;
     private final UserService userService;
     private final OrdersService ordersService;
 
@@ -79,7 +83,10 @@ public class Init {
         System.out.println(bookService.findByTitle("MoBy-Dick12"));
 
         //5.Get the most popular and the most unpopular books in selected period
-        System.out.println(bookService.findMostPopularByTitle(2));
+        //TODO make limit(range) custom, not working!!!!!!
+        System.out.println(bookService.findMostPopularBook(2));
+        // 6.Get his/her statistics (how many and how long books were been read, reading now)
+        System.out.println(userRepository.findStatisticAboutBooks(1));
     }
 
 }

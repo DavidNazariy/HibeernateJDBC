@@ -18,10 +18,10 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "userId")
     private User user;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "book_id", referencedColumnName = "id")
+    @JoinColumn(name = "bookId")
     private Book book;
     private String fromDate;
     private String toDate;

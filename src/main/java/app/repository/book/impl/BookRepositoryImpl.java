@@ -1,7 +1,6 @@
 package app.repository.book.impl;
 
 import app.dao.Book;
-import app.dao.Orders;
 import app.repository.book.BookRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -57,7 +56,7 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public Book findObjectByTitle(String title) {
-        Book book =(Book)  entityManager.createNativeQuery(" SELECT * FROM BOOK WHERE title = ?1", Book.class)
+        Book book = (Book) entityManager.createNativeQuery(" SELECT * FROM BOOK WHERE title = ?1", Book.class)
                 .setParameter(1, title)
                 .getSingleResult();
 
@@ -65,18 +64,17 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public Orders findMostPopularByTitle(int range) {
-       /* Orders orders =(Orders)  entityManager.createNativeQuery(*/
-       /*              "SELECT orders.book_id " +*/
-       /*                 "FROM Orders orders " +*/
-       /*                 "GROUP BY orders.book_id " +*/
-       /*                 "ORDER BY COUNT(*) DESC " +*/
-       /*                 "LIMIT ?1", Orders.class)*/
-       /*         .setParameter(1, range)*/
-       /*         .getSingleResult();*/
+    public List findMostPopularBook(int range) {
 
-      //  return orders;
-        return null;
+    /*    return entityManager.createNativeQuery(
+                             " SELECT book_id AS" +
+                                " FROM  orders " +
+                                " GROUP BY book_id " +
+                                " ORDER BY COUNT(*) DESC " +
+                                " LIMIT 1; ", Orders.class)
+                .getResultList();*/
+return null;
+
     }
 
     @Override

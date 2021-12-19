@@ -17,6 +17,8 @@ public interface UserRepository {
 
     User findUserByEmail(String email);
 
+    List findStatisticAboutBooks(int id);
+
     List getStatisticAboutUser(String name);
 
     User findWithId(Long id);

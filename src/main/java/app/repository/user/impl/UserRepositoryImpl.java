@@ -1,5 +1,6 @@
 package app.repository.user.impl;
 
+import app.dao.Orders;
 import app.dao.User;
 import app.repository.user.UserRepository;
 import lombok.AllArgsConstructor;
@@ -61,6 +62,15 @@ public class UserRepositoryImpl implements UserRepository {
                 .setParameter(1, email)
                 .getSingleResult();
         return user;
+    }
+
+    @Override
+    public List findStatisticAboutBooks(int id) {
+        return entityManager.createNativeQuery(
+                             "SELECT orders.id,orders.bookId,orders.returnDate,orders.fromDate, orders.toDate, orders.userId,orders.status\n" +
+                                "FROM Orders orders\n" +
+                                "WHERE orders.userId =1", Orders.class)
+                .getResultList();
     }
 
     @Override
