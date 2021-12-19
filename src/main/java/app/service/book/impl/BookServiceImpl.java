@@ -1,6 +1,7 @@
 package app.service.book.impl;
 
 import app.dao.Book;
+import app.dao.Orders;
 import app.dto.BookDto;
 import app.repository.book.BookRepository;
 import app.service.book.BookService;
@@ -9,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import static app.mapper.DaoBook.getBook;
 
 @Slf4j
 @Service
@@ -32,36 +35,37 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public Book findObjectByTitle(String title) {
+      return   bookRepository.findObjectByTitle(title);
+    }
+
+    @Override
+    public Orders findMostPopularByTitle(int range) {
+        return bookRepository.findMostPopularByTitle(range);
+    }
+
+    @Override
     public List getInfoByAuthor(String author) {
         return bookRepository.getInfoByAuthor(author);
     }
 
     @Override
-    public void isAvailable(String title) {
+    public Book isAvailable(String title) {
         if (bookRepository.findByTitle(title).size() != 0) {
             for (int i = 0; i < bookRepository.findByTitle(title).size(); i++) {
                 Book book = (Book) bookRepository.findByTitle(title).get(i);
-                if  (book.getCopiesAmount() > 0) {
+                if (book.getCopiesAmount() > 0) {
                     System.out.println("Book is available");
-                    break;
-                }
-                else if (book.getCopiesAmount() == 0) {
+                    return book;
+
+                } else if (book.getCopiesAmount() == 0) {
                     System.out.println("Book is not available");
-                    break;
+                    return book;
+
                 }
             }
-        }
-        else
+        } else
             System.out.println("Book is not available");
-
+            return null;
     }
-
-        private Book getBook (BookDto bookDto){
-            return Book.builder()
-                    .title(bookDto.getTitle())
-                    .copiesAmount(bookDto.getCopiesAmount())
-                    .mainAuthor(bookDto.getMainAuthor())
-                    .build();
-        }
-
-    }
+}

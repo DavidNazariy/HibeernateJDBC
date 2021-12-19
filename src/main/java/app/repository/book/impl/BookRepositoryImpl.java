@@ -1,6 +1,7 @@
 package app.repository.book.impl;
 
 import app.dao.Book;
+import app.dao.Orders;
 import app.repository.book.BookRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+
 @Slf4j
 @Service
 @AllArgsConstructor
@@ -16,14 +18,13 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public void saveBook(Book book) {
-        if(findByTitle(book.getTitle()).size()==0) {
+        if (findByTitle(book.getTitle()).size() == 0) {
             entityManager.getTransaction().begin();
             entityManager.persist(book);
             entityManager.getTransaction().commit();
-            log.info("Saved book :",book);
-        }
-        else
-            log.info("Book already exist:",book);
+            log.info("Saved book :", book);
+        } else
+            log.info("Book already exist:", book);
     }
 
     @Override
@@ -47,11 +48,35 @@ public class BookRepositoryImpl implements BookRepository {
                 .setMaxResults(10)
                 .getResultList();*/
 
-        return   entityManager.createNativeQuery(" SELECT * FROM BOOK WHERE title = ?1", Book.class)
+        return entityManager.createNativeQuery(" SELECT * FROM BOOK WHERE title = ?1", Book.class)
                 .setParameter(1, title)
                 .getResultList();
 
 
+    }
+
+    @Override
+    public Book findObjectByTitle(String title) {
+        Book book =(Book)  entityManager.createNativeQuery(" SELECT * FROM BOOK WHERE title = ?1", Book.class)
+                .setParameter(1, title)
+                .getSingleResult();
+
+        return book;
+    }
+
+    @Override
+    public Orders findMostPopularByTitle(int range) {
+       /* Orders orders =(Orders)  entityManager.createNativeQuery(*/
+       /*              "SELECT orders.book_id " +*/
+       /*                 "FROM Orders orders " +*/
+       /*                 "GROUP BY orders.book_id " +*/
+       /*                 "ORDER BY COUNT(*) DESC " +*/
+       /*                 "LIMIT ?1", Orders.class)*/
+       /*         .setParameter(1, range)*/
+       /*         .getSingleResult();*/
+
+      //  return orders;
+        return null;
     }
 
     @Override

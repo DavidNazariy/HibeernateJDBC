@@ -56,8 +56,16 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
+    public User findUserByEmail(String email) {
+        User user = (User) entityManager.createNativeQuery(" SELECT * FROM USER WHERE email = ?1", User.class)
+                .setParameter(1, email)
+                .getSingleResult();
+        return user;
+    }
+
+    @Override
     public List getStatisticAboutUser(String name) {
-    return null;
+        return null;
     }
 
     public User findWithId(Long id) {

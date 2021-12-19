@@ -1,6 +1,7 @@
 package app.repository.book;
 
 import app.dao.Book;
+import app.dao.Orders;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,8 +15,11 @@ public interface BookRepository {
 
     List findByTitle(String title);
 
-    List getInfoByAuthor(String name);
+    Book findObjectByTitle(String title);
 
+    Orders findMostPopularByTitle(int range);
+
+    List getInfoByAuthor(String name);
 
 
 }

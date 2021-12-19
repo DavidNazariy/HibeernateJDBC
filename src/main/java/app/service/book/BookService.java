@@ -1,5 +1,7 @@
 package app.service.book;
 
+import app.dao.Book;
+import app.dao.Orders;
 import app.dto.BookDto;
 
 import java.util.List;
@@ -11,7 +13,11 @@ public interface BookService {
 
     List findByTitle(String title);
 
+    Book findObjectByTitle(String title);
+
+    Orders findMostPopularByTitle(int range);
+
     List getInfoByAuthor(String author);
 
-    void isAvailable(String title);
+    Book isAvailable(String title);
 }
