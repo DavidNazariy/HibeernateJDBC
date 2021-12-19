@@ -56,5 +56,136 @@
             <version>1.7.32</version>
         </dependency>
 
+<!--        For @GetMapping -->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework</groupId>-->
+<!--            <artifactId>spring-web</artifactId>-->
+<!--        </dependency>-->
+
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-security</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.security</groupId>-->
+<!--            <artifactId>spring-security-test</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+
+
     </dependencies>
+
+<!--Spring-boot-->
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 </project>
+
+<!--Приклад помпки, по якій вчився, не все можна використовувати в даному проекті:-->
+<!--<dependencies>-->
+<!--&lt;!&ndash; Hibernate Start &ndash;&gt;-->
+<!--<dependency>-->
+<!--    <groupId>org.hibernate</groupId>-->
+<!--    <artifactId>hibernate-core</artifactId>-->
+<!--    <version>${hibernate.version}</version>-->
+<!--</dependency>-->
+<!--<dependency>-->
+<!--    <groupId>org.hibernate</groupId>-->
+<!--    <artifactId>hibernate-entitymanager</artifactId>-->
+<!--    <version>${hibernate.version}</version>-->
+<!--</dependency>-->
+<!--&lt;!&ndash; https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator &ndash;&gt;-->
+<!--<dependency>-->
+<!--    <groupId>org.hibernate.validator</groupId>-->
+<!--    <artifactId>hibernate-validator</artifactId>-->
+<!--    <version>6.1.5.Final</version>-->
+<!--</dependency>-->
+
+<!--<dependency>-->
+<!--    <groupId>org.hibernate.javax.persistence</groupId>-->
+<!--    <artifactId>hibernate-jpa-2.1-api</artifactId>-->
+<!--    <version>1.0.0.Final</version>-->
+<!--</dependency>-->
+<!--&lt;!&ndash; Hibernate End &ndash;&gt;-->
+
+<!--<dependency>-->
+<!--    <groupId>mysql</groupId>-->
+<!--    <artifactId>mysql-connector-java</artifactId>-->
+<!--</dependency>-->
+
+<!--<dependency>-->
+<!--    <groupId>org.springframework.boot</groupId>-->
+<!--    <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+<!--</dependency>-->
+<!--<dependency>-->
+<!--    <groupId>org.springframework.boot</groupId>-->
+<!--    <artifactId>spring-boot-starter-web</artifactId>-->
+<!--</dependency>-->
+
+<!--<dependency>-->
+<!--    <groupId>org.springframework.boot</groupId>-->
+<!--    <artifactId>spring-boot-devtools</artifactId>-->
+<!--    <scope>runtime</scope>-->
+<!--    <optional>true</optional>-->
+<!--</dependency>-->
+<!--<dependency>-->
+<!--    <groupId>org.springframework.boot</groupId>-->
+<!--    <artifactId>spring-boot-starter-test</artifactId>-->
+<!--    <scope>test</scope>-->
+<!--</dependency>-->
+
+<!--&lt;!&ndash;        for entity manager&ndash;&gt;-->
+<!--<dependency>-->
+<!--    <groupId>org.springframework.boot</groupId>-->
+<!--    <artifactId>spring-boot-starter-data-jpa</artifactId>-->
+<!--</dependency>-->
+
+
+<!--<dependency>-->
+<!--    <groupId>org.springframework.boot</groupId>-->
+<!--    <artifactId>spring-boot-starter-security</artifactId>-->
+<!--</dependency>-->
+<!--<dependency>-->
+<!--    <groupId>org.springframework.security</groupId>-->
+<!--    <artifactId>spring-security-test</artifactId>-->
+<!--    <scope>test</scope>-->
+<!--</dependency>-->
+
+<!--<dependency>-->
+<!--    <groupId>org.webjars</groupId>-->
+<!--    <artifactId>jquery</artifactId>-->
+<!--    <version>2.2.4</version>-->
+<!--</dependency>-->
+
+<!--<dependency>-->
+<!--    <groupId>org.webjars</groupId>-->
+<!--    <artifactId>bootstrap</artifactId>-->
+<!--    <version>3.3.7</version>-->
+<!--</dependency>-->
+
+<!--<dependency>-->
+<!--    <groupId>commons-fileupload</groupId>-->
+<!--    <artifactId>commons-fileupload</artifactId>-->
+<!--    <version>1.4</version>-->
+<!--</dependency>-->
+
+<!--<dependency>-->
+<!--    <groupId>org.projectlombok</groupId>-->
+<!--    <artifactId>lombok</artifactId>-->
+<!--    <version>1.18.20</version>-->
+<!--    <scope>provided</scope>-->
+<!--</dependency>-->
+
+<!--<dependency>-->
+<!--    <groupId>org.mapstruct</groupId>-->
+<!--    <artifactId>mapstruct</artifactId>-->
+<!--    <version>1.2.0.Final</version>-->
+<!--</dependency>-->
+
+<!--</dependencies>-->

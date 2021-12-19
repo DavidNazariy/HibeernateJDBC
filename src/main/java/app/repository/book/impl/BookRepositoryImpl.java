@@ -89,4 +89,30 @@ public class BookRepositoryImpl implements BookRepository {
                 .setParameter(1, name)
                 .getResultList();
     }
+
+    @Override
+    public List findByOrders(String name) {
+//        return entityManager.createNativeQuery(" o.bookId\n" +
+//                "    ,b.titleName\n" +
+//                "    ,ma.AuthorName as MainAuthorName\n" +
+//                "    ,ca.AuthorName as CoAuthorName\n" +
+//                "      ,count(*) as OrderCount\n" +
+//                "    ,avg(DATEDIFF(o.toDate, o.fromDate)) as AVGdays\n" +
+//                "      ,o.isOriginal\n" +
+//                "  FROM Orders as o left join Book as b on o.bookId=b.id\n" +
+//                "             left join Author as ma on b.mainAuthor = ma.id\n" +
+//                "             left join Author as ca on b.coAuthor = ca.id\n" +
+//                "  where o.isActive = 0 and o.IsOriginal= 0\n" +
+//                "  group by o.bookId, o.IsOriginal, b.titleName, ma.AuthorName, ca.AuthorName")
+        return entityManager.createNativeQuery(" SELECT o.bookId, b.titleName, MainAuthorName + CoAuthorName\n"
+                                 +"count(*) order\n" +
+                        "FROM orders\n" +
+                "avg((DATEDIFF(o.toDate, o.fromDate)) as AVGdays\n" +
+
+                        "INNER JOIN Book book\n" +
+                        "ON author.id = book.mainAuthor_id\n" +
+                        "WHERE title = ?1", Orders.class)
+                .setParameter(1, name)
+                .getResultList();
+    }
 }

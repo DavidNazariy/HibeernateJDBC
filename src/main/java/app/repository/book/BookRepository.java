@@ -22,5 +22,6 @@ public interface BookRepository {
     List getInfoByAuthor(String name);
 
 
+    List findByOrders(String name);
 }
 
